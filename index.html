@@ -1,0 +1,232 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Information Form</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #fff0f5;
+            margin: 0;
+            padding: 30px 15px;
+            color: #444;
+        }
+
+        .form-container {
+            max-width: 650px;
+            margin: auto;
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px #e8b8ca;
+        }
+
+        h1 {
+            text-align: center;
+            color: #c45b83;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #888;
+            margin-bottom: 25px;
+        }
+
+        h3 {
+            color: #c45b83;
+            border-bottom: 2px solid #f5d4e0;
+            padding-bottom: 8px;
+            margin-top: 25px;
+        }
+
+        .form-group {
+            margin-bottom: 18px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 7px;
+            font-weight: bold;
+        }
+
+        input, select, textarea {
+            width: 100%;
+            padding: 11px;
+            border: 1px solid #e6b7c8;
+            border-radius: 7px;
+            font-size: 14px;
+            font-family: inherit;
+        }
+
+        input:focus, select:focus, textarea:focus {
+            outline: 2px solid #e89bb5;
+            border-color: #c45b83;
+        }
+
+        .radio-group {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .radio-group label {
+            font-weight: normal;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .radio-group input {
+            width: auto;
+        }
+
+        button {
+            width: 100%;
+            padding: 13px;
+            background: #d9789b;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        button:hover {
+            background: #bd5d81;
+        }
+
+        #message {
+            display: none;
+            text-align: center;
+            color: #a33f69;
+            background: #fff0f5;
+            padding: 12px;
+            margin-top: 15px;
+            border-radius: 8px;
+        }
+
+        @media (max-width: 500px) {
+            .form-container {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="form-container">
+    <h1>Student Information Form</h1>
+    <p class="subtitle">Please fill out the information below.</p>
+
+    <form id="studentForm">
+
+        <h3>Personal Information</h3>
+
+        <div class="form-group">
+            <label for="fullname">Full Name</label>
+            <input type="text" id="fullname" name="fullname"
+                   placeholder="Enter your full name" required>
+        </div>
+
+        <div class="form-group">
+            <label for="birthdate">Date of Birth</label>
+            <input type="date" id="birthdate" name="birthdate" required>
+        </div>
+
+        <div class="form-group">
+            <label>Gender</label>
+            <div class="radio-group">
+                <label>
+                    <input type="radio" name="gender" value="Male" required>
+                    Male
+                </label>
+                <label>
+                    <input type="radio" name="gender" value="Female">
+                    Female
+                </label>
+                <label>
+                    <input type="radio" name="gender" value="Prefer not to say">
+                    Prefer not to say
+                </label>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="email">Email Address</label>
+            <input type="email" id="email" name="email"
+                   placeholder="example@email.com" required>
+        </div>
+
+        <div class="form-group">
+            <label for="phone">Contact Number (Optional)</label>
+            <input type="tel" id="phone" name="phone"
+                   placeholder="Enter contact number">
+        </div>
+
+        <h3>Academic Information</h3>
+
+        <div class="form-group">
+            <label for="grade">Grade Level</label>
+            <select id="grade" name="grade" required>
+                <option value="">Select grade level</option>
+                <option>Grade 7</option>
+                <option>Grade 8</option>
+                <option>Grade 9</option>
+                <option>Grade 10</option>
+                <option>Grade 11</option>
+                <option>Grade 12</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="section">Section</label>
+            <input type="text" id="section" name="section"
+                   placeholder="Enter your section" required>
+        </div>
+
+        <div class="form-group">
+            <label for="schoolyear">School Year</label>
+            <select id="schoolyear" name="schoolyear" required>
+                <option value="">Select school year</option>
+                <option>2025-2026</option>
+                <option>2026-2027</option>
+                <option>2027-2028</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="address">Address (Optional)</label>
+            <textarea id="address" name="address" rows="3"
+                      placeholder="Enter your address"></textarea>
+        </div>
+
+        <button type="submit">Submit Information</button>
+
+        <p id="message" role="status">
+            Your form has been submitted successfully!
+        </p>
+
+    </form>
+</div>
+
+<script>
+    document.getElementById("studentForm").addEventListener("submit", function(event) {
+        event.preventDefault();
+
+        document.getElementById("message").style.display = "block";
+        this.reset();
+    });
+</script>
+
+</body>
+</html>
